@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Configure json server
+First you need to install it globally
+
+npm install -g json-server
+
+then run the below script to run at port 4400 with watch option
+
+json-server -p 4400 -w ./data/db.json
+
 ## Available Scripts
 
 In the project directory, you can run:
