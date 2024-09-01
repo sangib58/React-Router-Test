@@ -24,31 +24,33 @@ import CareerLayout from "./layouts/CareerLayout";
 function App() {
   const router=createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout/>}>
-        <Route index element={<Home/>}/>
-        <Route path="about" element={<About/>}/>
-        <Route path="help" element={<HelpLayout/>}>
-          <Route path="faq" element={<Faq/>} />
-          <Route 
-            path="contact" 
-            element={<Contact/>}
-            action={contactAction} 
-          />
-        </Route>
-        <Route path="career" element={<CareerLayout/>} errorElement={<CareerError/>}>
-          <Route 
-            index
-            element={<Career/>} 
-            loader={careersLoader}
-          />
-          <Route
-            path=":id"
-            element={<CareerDetail/>}
-            loader={careerDetailLoader}
-          />
+      <>
+        <Route path="/" element={<RootLayout/>}>
+          <Route index element={<Home/>}/>
+          <Route path="about" element={<About/>}/>
+          <Route path="help" element={<HelpLayout/>}>
+            <Route path="faq" element={<Faq/>} />
+            <Route 
+              path="contact" 
+              element={<Contact/>}
+              action={contactAction} 
+            />
+          </Route>
+          <Route path="career" element={<CareerLayout/>} errorElement={<CareerError/>}>
+            <Route 
+              index
+              element={<Career/>} 
+              loader={careersLoader}
+            />
+            <Route
+              path=":id"
+              element={<CareerDetail/>}
+              loader={careerDetailLoader}
+            />
+          </Route>         
         </Route>
         <Route path="*" element={<NotFound/>}/>
-      </Route>
+      </>
     )
   )
   return (
